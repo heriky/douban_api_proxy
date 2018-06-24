@@ -15,7 +15,7 @@ app.use(async(ctx, next) => {
 
 	// 腾讯分分彩
 	if(originalUrl.startsWith('/api/tencent')) {
-    const res = await axios.get(`http://77tj.org/api${originalUrl}`);
+    const res = await axios.get(`http://77tj.org/api/tencent/onlineim`);
     ctx.status = 200;
     ctx.message = 'ok';
     ctx.type = 'json';
