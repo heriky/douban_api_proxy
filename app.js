@@ -34,6 +34,16 @@ app.use(async(ctx, next) => {
 		ctx.type = 'json';
 		ctx.body = res.data;
 	}
+
+
+  /*2. 使用/tencent标志腾讯分分彩*/
+  if(originalUrl.startsWith('/tencent')) {
+    const res = await axios.get(`http://77tj.org/api${originalUrl}`);
+    ctx.status = 200;
+    ctx.message = 'ok';
+    ctx.type = 'json';
+    ctx.body = res;
+  }
 });
 
 app.listen(port, () => {
