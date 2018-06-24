@@ -19,11 +19,11 @@ app.use(async(ctx, next) => {
     ctx.status = 200;
     ctx.message = 'ok';
     ctx.type = 'json';
-    ctx.body = res;
+    ctx.body = res.data;
     return;
   }
 
-  if() { // 使用api标志豆瓣api,slice(4)和api强关联
+  if(originalUrl.startsWith('/api')) { // 使用api标志豆瓣api,slice(4)和api强关联
 		const targetUrl = `${doubanPrefix}${originalUrl.slice(4)}`; // 向豆瓣发起的目标url
 
     // 处理get和post
