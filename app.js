@@ -14,7 +14,7 @@ app.use(async(ctx, next) => {
 	const originalUrl = ctx.originalUrl;
 
 	// 腾讯分分彩
-	if('/api/tencent') {
+	if(originalUrl.startsWith('/api/tencent')) {
     const res = await axios.get(`http://77tj.org/api${originalUrl}`);
     ctx.status = 200;
     ctx.message = 'ok';
@@ -23,7 +23,7 @@ app.use(async(ctx, next) => {
     return;
   }
 
-  if(originalUrl.startsWith('/api')) { // 使用api标志豆瓣api,slice(4)和api强关联
+  if() { // 使用api标志豆瓣api,slice(4)和api强关联
 		const targetUrl = `${doubanPrefix}${originalUrl.slice(4)}`; // 向豆瓣发起的目标url
 
     // 处理get和post
